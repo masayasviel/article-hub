@@ -17,6 +17,7 @@ const Home: NextPage = () => {
       
       {/* MUIの動作テスト */}
       <Button variant="contained">MUIの動作テスト</Button>
+      <Button variant="contained">いなくんボタン</Button>
       <main className={styles.main}>
 
         <h1 className={styles.title}>
