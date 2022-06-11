@@ -1,32 +1,44 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useState, Dispatch, SetStateAction } from 'react';
 import Typography from '@mui/material/Typography';
-
 import TextField from '@mui/material/TextField';
+import Stack from '@mui/material/Stack';
+
+import { getInputForValue } from '@functions/formControl';
 
 import style from './required-one-line-form.module.css';
 
 /** propsの型 */
 interface PropType {
+    /** 初期値 */
     initialValue?: string;
+    /** 親のディスパッチャー */
+    setState: Dispatch<SetStateAction<{
+        /** 入力値 */
+        input: string | undefined;
+        /** バリデーションに沿っているか */
+        valid: boolean;
+    }>>;
 }
 
-/** フォームの入力値を取得*/
-const getInputForValue = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): string => event.target.value;
+/** 入力必須単一入力フォーム */
+const RequiredOneLineForm = ({ initialValue, setState }: PropType) => {
+    // --- state ---
 
-/** 入力必須単一入力フォーム
- * @param initialValue 初期値
- */
-const RequiredOneLineForm = ({ initialValue }: PropType) => {
     /** 必須項目が未入力 */
     const [requiredValid, setRequiredValid] = useState(false);
+
+    // --- event handler ---
+
     /** テキストフィールドに変化があったとき */
     const onChangeTextField = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
         const inputValue = getInputForValue(event);
-        setRequiredValid(!!inputValue);
+        const isValid = Boolean(inputValue);
+        setRequiredValid(isValid);
+        setState({ input: inputValue, valid: isValid });
     };
 
     return (
-        <div className={style.container}>
+        <Stack direction="column" spacing={0.2}>
             <TextField
                 required
                 error={!requiredValid}
@@ -43,7 +55,7 @@ const RequiredOneLineForm = ({ initialValue }: PropType) => {
                     sx={{ fontSize: 8 }}
                 >required inputs.</Typography>
             }</div>
-        </div>
+        </Stack>
     );
 };
 

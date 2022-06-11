@@ -17,8 +17,11 @@
     "incremental": true,
     "paths": {
       "@api/*": ["./pages/api/*"],
-      "@atom/*": ["./src/atoms/*"],
-      "@component/*": ["./src/components/*"]
+      "@atom/*": ["./src/components/atoms/*"],
+      "@organization/*": ["./src/components/organization/*"],
+      "@functions/*": ["./src/functions/*"],
+      "@services/*": ["./src/services/*"],
+      "@interfaces/*": ["./src/interfaces/*"]
     },
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
