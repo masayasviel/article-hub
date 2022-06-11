@@ -2,6 +2,12 @@
 
 ## Usage
 
+- serve
+
+```sh
+npm run dev
+```
+
 - docker-compose up
 
 ```sh

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "pages",
+    "baseUrl": ".",
     "target": "es2019",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -16,9 +16,9 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@api/*": ["./api/*"],
-      "@atom/*": ["./atoms/*"],
-      "@component/*": ["./components/*"]
+      "@api/*": ["./pages/api/*"],
+      "@atom/*": ["./src/atoms/*"],
+      "@component/*": ["./src/components/*"]
     },
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
