@@ -4,7 +4,7 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 
 import WritingForm from '@organization/writing-form/writing-form';
-import { createRequest } from '@services/article-service';
+import { createRequest } from '@services/article.service';
 
 /** 記事登録ページ */
 const CreatePage: NextPage = () => {
@@ -12,7 +12,7 @@ const CreatePage: NextPage = () => {
     const [ inputValues, setInputValues ] = useState({ title: '', content: '' });
     const [ isValid, setIsValid ] = useState(false);
 
-    // --- envent handler ---
+    // --- event handler ---
 
     /** 記事登録 */
     const onClickRegisterButton = () => {

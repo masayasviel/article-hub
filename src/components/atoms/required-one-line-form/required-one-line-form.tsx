@@ -1,7 +1,7 @@
 import { ChangeEvent, useState, Dispatch, SetStateAction } from 'react';
-import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
+import FormHelperText from '@mui/material/FormHelperText';
 
 import { getInputForValue } from '@functions/formControl';
 
@@ -47,14 +47,9 @@ const RequiredOneLineForm = ({ initialValue, setState }: PropType) => {
                 variant="standard"
                 onChange={onChangeTextField}
             />
-            <div className={style.errorMessage}>{
-                !requiredValid &&
-                <Typography
-                    component="span"
-                    color="error"
-                    sx={{ fontSize: 8 }}
-                >required inputs.</Typography>
-            }</div>
+            <div className={style.errorMessage}>
+                <FormHelperText error={!requiredValid}>{ !requiredValid && 'required inputs.'}</FormHelperText>
+            </div>
         </Stack>
     );
 };

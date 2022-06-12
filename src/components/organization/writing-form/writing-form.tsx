@@ -10,11 +10,12 @@ interface PropType {
     propTitle?: string;
     /** 記事の中身 */
     propContent?: string;
-    /** 親のディスパッチャー */
+    /** 親のディスパッチャー(state) */
     setState: Dispatch<SetStateAction<{
         title: string;
         content: string;
     }>>;
+    /** 親のディスパッチャー(valid) */
     setValid: Dispatch<SetStateAction<boolean>>;
 }
 
@@ -24,7 +25,7 @@ const WritingForm = ({ propTitle, propContent, setState, setValid }: PropType) =
     const [inputTitle, setTitle] = useState({ input: propTitle, valid: false });
     const [inputContent, setContent] = useState(propContent);
 
-    // --- efect ---
+    // --- effect ---
     useEffect(() => {
         setState({
             title: inputTitle.input ?? '',
