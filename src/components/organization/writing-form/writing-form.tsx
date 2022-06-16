@@ -3,6 +3,8 @@ import Stack from '@mui/material/Stack';
 
 import MultilineForm from '@atom/multiline-form';
 import RequiredOneLineForm from '@atom/required-one-line-form/required-one-line-form';
+import markdownDisplay from "@atom/markdown-display";
+import MarkdownDisplay from "@atom/markdown-display";
 
 /** propsの型 */
 interface PropType {
@@ -38,6 +40,7 @@ const WritingForm = ({ propTitle, propContent, setState, setValid }: PropType) =
         <Stack direction="column" spacing={2.5}>
             <RequiredOneLineForm initialValue={propTitle} setState={setTitle}></RequiredOneLineForm>
             <MultilineForm initialValue={propContent} setState={setContent}></MultilineForm>
+            <MarkdownDisplay content={inputContent ?? ''}></MarkdownDisplay>
         </Stack>
     );
 };
