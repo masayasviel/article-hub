@@ -1,0 +1,13 @@
+.boxSize {
+    height: 510px;
+}
+
+.multilineForms {
+    margin: 8px;
+}
+
+.paper {
+    height: 100%;
+    max-height: 510px;
+    overflow: scroll;
+}

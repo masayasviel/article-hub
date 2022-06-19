@@ -10,10 +10,7 @@ interface PropType {
     setState: Dispatch<SetStateAction<string | undefined>>;
 }
 
-/**
- * 複数入力フォーム
- * @param initialValue 初期値
- */
+/** 複数入力フォーム */
 const MultilineForm = ({ initialValue, setState }: PropType) => {
     // --- event handler ---
 
