@@ -3,6 +3,7 @@ import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
+import { Container } from '@mui/system';
 
 import WritingForm from '@organization/writing-form/writing-form';
 import { createRequest } from '@services/article.service';
@@ -37,7 +38,7 @@ const CreatePage: NextPage = () => {
     };
 
     return (
-        <>
+        <Container maxWidth="lg">
             <h2>記事執筆ページ</h2>
             <Stack spacing={2} direction="column" justifyContent="flex-start">
                 <Stack spacing={2} direction="row" justifyContent="flex-end" alignItems="center">
@@ -46,7 +47,7 @@ const CreatePage: NextPage = () => {
                 </Stack>
                 <WritingForm setState={setInputValues} setValid={setIsValid}></WritingForm>
             </Stack>
-        </>
+        </Container>
     );
 }
 

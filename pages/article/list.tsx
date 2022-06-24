@@ -1,8 +1,10 @@
 import type { NextPage } from 'next';
+import Link from 'next/link'
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-import ArticleColumn from '@organization/article-column/article-column';
 import { Container } from '@mui/system';
+
+import ArticleColumn from '@organization/article-column/article-column';
 
 const ArticleList: NextPage = () => {
     const testData = [
@@ -14,7 +16,9 @@ const ArticleList: NextPage = () => {
         <Container maxWidth="lg">
             <h1>Article List</h1>
             <Stack direction="row" justifyContent="flex-end">
-                <Button>記事作成</Button>
+                <Link href="./create" passHref>
+                    <Button>記事作成</Button>
+                </Link>
             </Stack>
             <Stack spacing={5} margin={3}>
                 {testData.map((item, index) => {
