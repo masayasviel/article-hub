@@ -19,7 +19,6 @@
       "@api/*": ["./pages/api/*"],
       "@atom/*": ["./src/components/atoms/*"],
       "@organization/*": ["./src/components/organization/*"],
-      "@functions/*": ["./src/functions/*"],
       "@services/*": ["./src/services/*"],
       "@interfaces/*": ["./src/interfaces/*"]
     },
