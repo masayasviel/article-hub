@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import FormHelperText from '@mui/material/FormHelperText';
 
-import { getInputForValue } from '@functions/formControl';
+import { getInputForValue } from '@services/formControl.service';
 
 import style from './required-one-line-form.module.css';
 

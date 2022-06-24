@@ -1,6 +1,5 @@
 import { Dispatch, SetStateAction, useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 
@@ -42,25 +41,32 @@ const WritingForm = ({ propTitle, propContent, setState, setValid }: PropType) =
 
     return (
         <Stack direction="column" spacing={2.5}>
-            <RequiredOneLineForm initialValue={propTitle} setState={setTitle}></RequiredOneLineForm>
-            <Box className={styles.boxSize}>
-                <Grid container direction="row" spacing={2}>
-                    <Grid item xs={6}>
-                        <Paper className={styles.paper} elevation={3}>
-                            <Stack className={styles.multilineForms}>
-                                <MultilineForm
-                                    initialValue={propContent}
-                                    setState={setContent}
-                                ></MultilineForm>
-                            </Stack>
-                        </Paper>
-                    </Grid>
-                    <Grid item xs={6}>
-                        <Paper className={styles.paper} elevation={3}>
-                            <MarkdownDisplay content={inputContent ?? ''}></MarkdownDisplay>
-                        </Paper>
-                    </Grid>
-                </Grid>
+            <Stack justifyContent="center" alignItems="center">
+                <div className={styles.commonWidth}>
+                    <RequiredOneLineForm initialValue={propTitle} setState={setTitle}></RequiredOneLineForm>
+                </div>
+            </Stack>
+            <Box
+                sx={{
+                    width: '100%',
+                    height: '100%',
+                    maxHeight: 510,
+                    display: 'flex',
+                    alignItems: 'stretch',
+                    justifyContent: 'space-around',
+                }}
+            >
+                <Paper className={styles.commonWidth} elevation={3}>
+                    <Stack className={styles.multilineForms}>
+                        <MultilineForm
+                            initialValue={propContent}
+                            setState={setContent}
+                        ></MultilineForm>
+                    </Stack>
+                </Paper>
+                <Paper className={`${styles.commonWidth} ${styles.contentPaper}`} elevation={3}>
+                    <MarkdownDisplay content={inputContent ?? ''}></MarkdownDisplay>
+                </Paper>
             </Box>
         </Stack>
     );

@@ -1,7 +1,7 @@
 import { ChangeEvent, Dispatch, SetStateAction } from 'react';
 import TextField from '@mui/material/TextField';
 
-import { getInputForValue } from '@functions/formControl';
+import { getInputForValue } from '@services/formControl.service';
 
 /** propsの型 */
 interface PropType {
