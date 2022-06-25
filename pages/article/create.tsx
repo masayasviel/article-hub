@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
+import Header from '@organization/header/header'
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import { Container } from '@mui/system';
@@ -39,6 +40,9 @@ const CreatePage: NextPage = () => {
 
     return (
         <Container maxWidth="lg">
+            {/* ヘッダー */}
+            <Header/>
+            
             <h2>記事執筆ページ</h2>
             <Stack spacing={2} direction="column" justifyContent="flex-start">
                 <Stack spacing={2} direction="row" justifyContent="flex-end" alignItems="center">
