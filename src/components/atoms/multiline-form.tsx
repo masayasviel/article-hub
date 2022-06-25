@@ -1,7 +1,7 @@
 import { ChangeEvent, Dispatch, SetStateAction } from 'react';
 import TextField from '@mui/material/TextField';
 
-import { getInputForValue } from '@functions/formControl';
+import { getInputForValue } from '@services/formControl.service';
 
 /** propsの型 */
 interface PropType {
@@ -10,10 +10,7 @@ interface PropType {
     setState: Dispatch<SetStateAction<string | undefined>>;
 }
 
-/**
- * 複数入力フォーム
- * @param initialValue 初期値
- */
+/** 複数入力フォーム */
 const MultilineForm = ({ initialValue, setState }: PropType) => {
     // --- event handler ---
 

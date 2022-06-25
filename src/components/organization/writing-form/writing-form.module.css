@@ -1,0 +1,11 @@
+.multilineForms {
+    margin: 8px;
+}
+
+.commonWidth {
+    width: 48%;
+}
+
+.contentPaper {
+    overflow-y: scroll;
+}
