@@ -1,10 +1,8 @@
 import { Box } from "@mui/material";
 import Paper from "@mui/material/Paper"
-import Layout from "../../../../components/layout";
 
-const Content = () => {
+const ContentDisplayPaper = () => {
   return (
-    <Layout>
     <Box
       sx={{
         display: 'flex',
@@ -21,8 +19,7 @@ const Content = () => {
         Contents
       </Paper>
     </Box>
-    </Layout>
   );
 }
 
-export default Content;
+export default ContentDisplayPaper;
