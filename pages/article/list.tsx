@@ -1,4 +1,5 @@
 import type { NextPage } from 'next';
+import Header from '@organization/header/header'
 import Link from 'next/link'
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
@@ -14,6 +15,9 @@ const ArticleList: NextPage = () => {
     ]
     return (
         <Container maxWidth="lg">
+            {/* ヘッダー */}
+            <Header/>
+
             <h1>Article List</h1>
             <Stack direction="row" justifyContent="flex-end">
                 <Link href="./create" passHref>
