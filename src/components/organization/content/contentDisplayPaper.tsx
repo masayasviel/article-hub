@@ -1,7 +1,16 @@
-import { Box } from "@mui/material";
-import Paper from "@mui/material/Paper"
+import { Box } from '@mui/material';
+import Paper from '@mui/material/Paper'
+import MarkdownDisplay from '@atom/markdown-display';
 
-const ContentDisplayPaper = () => {
+
+/** propsの型 */
+interface PropType {
+  /** 記事の内容 */
+  article: string;
+}
+
+/** 記事の内容を表示 */
+const ContentDisplayPaper = ({ article }: PropType) => {
   return (
     <Box
       sx={{
@@ -16,7 +25,7 @@ const ContentDisplayPaper = () => {
       }}
     >
       <Paper>
-        Contents
+        <MarkdownDisplay content={article} />
       </Paper>
     </Box>
   );
