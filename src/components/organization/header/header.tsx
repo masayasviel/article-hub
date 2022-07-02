@@ -11,10 +11,10 @@ const Header = () => {
                 <Toolbar>
                     {/* 見出し */}
                     <Typography variant="h4" component="div" sx={{flexGrow: 1}}>
-                    article-hub
+                        article-hub
                     </Typography>
                     {/* ボタン */}
-                    <Link href="http://localhost:3000/article/create" passHref>
+                    <Link href="http://localhost:3000/article/8" passHref>
                         <Button color="inherit">Logout</Button>
                     </Link>
                 </Toolbar>
