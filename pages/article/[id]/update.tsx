@@ -9,31 +9,24 @@ import { createRequest } from '@services/article.service';
 import {openSnackbar} from "@services/global.service";
 
 /** 記事登録ページ */
-const CreatePage: NextPage = () => {
+const UpdatePage: NextPage = () => {
     // --- state ---
     const [ inputValues, setInputValues ] = useState({ title: '', content: '' });
     const [ isValid, setIsValid ] = useState(false);
     const router = useRouter();
-
-    // --- private method ---
-
-    /** 一覧へ遷移 */
-    const _navigateList = () => {
-        router.push('/article/list').then();
-    };
+    const { id } = router.query;
 
     // --- event handler ---
 
-    /** 記事登録 */
-    const onClickRegisterButton = () => {
-        createRequest(inputValues);
+    /** 記事更新 */
+    const onClickUpdateButton = () => {
         openSnackbar('success');
-        _navigateList();
+        router.push('/article/list').then();
     };
 
     /** 執筆キャンセル */
     const onClickCancelButton = () => {
-        _navigateList();
+        router.push(`/article/${id}`).then();
     };
 
     return (
@@ -42,7 +35,7 @@ const CreatePage: NextPage = () => {
             <Stack spacing={2} direction="column" justifyContent="flex-start">
                 <Stack spacing={2} direction="row" justifyContent="flex-end" alignItems="center">
                     <Button variant="outlined" onClick={onClickCancelButton}>キャンセル</Button>
-                    <Button variant="contained" disabled={!isValid} onClick={onClickRegisterButton}>投稿</Button>
+                    <Button variant="contained" disabled={!isValid} onClick={onClickUpdateButton}>更新</Button>
                 </Stack>
                 <WritingForm setState={setInputValues} setValid={setIsValid}></WritingForm>
             </Stack>
@@ -50,4 +43,4 @@ const CreatePage: NextPage = () => {
     );
 }
 
-export default CreatePage;
+export default UpdatePage;
