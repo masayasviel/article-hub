@@ -1,8 +1,8 @@
-import { NextPage } from "next";
-import ContentDisplayPaper from "@organization/content/contentDisplayPaper";
-import { Button, Icon, Stack } from "@mui/material";
-import Link from "next/link";
-import { useRouter } from "next/router";
+import { NextPage } from 'next';
+import ContentDisplayPaper from '@organization/content/contentDisplayPaper';
+import { Button, Icon, Stack } from '@mui/material';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const ContentPage: NextPage = () => {
   const router = useRouter();
@@ -17,7 +17,7 @@ const ContentPage: NextPage = () => {
         <Button variant="text" href="/article/list">
           <Icon>arrow_back</Icon>back
         </Button>
-        <Link href={`http://localhost:3000/article/${id}/update`}>
+        <Link href={`/article/${id}/update`}>
           <Button variant="contained">
             更新
           </Button>

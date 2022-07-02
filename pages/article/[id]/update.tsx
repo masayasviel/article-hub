@@ -5,10 +5,10 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 
 import WritingForm from '@organization/writing-form/writing-form';
-import { createRequest } from '@services/article.service';
-import {openSnackbar} from "@services/global.service";
+import { openSnackbar } from '@services/global.service';
+import { updateRequest } from '@services/article.service';
 
-/** 記事登録ページ */
+/** 記事更新ページ */
 const UpdatePage: NextPage = () => {
     // --- state ---
     const [ inputValues, setInputValues ] = useState({ title: '', content: '' });
@@ -19,9 +19,14 @@ const UpdatePage: NextPage = () => {
     // --- event handler ---
 
     /** 記事更新 */
-    const onClickUpdateButton = () => {
-        openSnackbar('success');
-        router.push('/article/list').then();
+    const onClickUpdateButton = async () => {
+        try {
+            await updateRequest(inputValues);
+            openSnackbar('success');
+            router.push('/article/list').then();
+        } catch {
+            openSnackbar('error');
+        }
     };
 
     /** 執筆キャンセル */

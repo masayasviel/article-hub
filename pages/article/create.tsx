@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 
 import WritingForm from '@organization/writing-form/writing-form';
 import { createRequest } from '@services/article.service';
-import {openSnackbar} from "@services/global.service";
+import {openSnackbar} from '@services/global.service';
 
 /** 記事登録ページ */
 const CreatePage: NextPage = () => {
@@ -15,25 +15,22 @@ const CreatePage: NextPage = () => {
     const [ isValid, setIsValid ] = useState(false);
     const router = useRouter();
 
-    // --- private method ---
-
-    /** 一覧へ遷移 */
-    const _navigateList = () => {
-        router.push('/article/list').then();
-    };
-
     // --- event handler ---
 
     /** 記事登録 */
-    const onClickRegisterButton = () => {
-        createRequest(inputValues);
-        openSnackbar('success');
-        _navigateList();
+    const onClickRegisterButton = async () => {
+        try {
+            await createRequest(inputValues);
+            openSnackbar('success');
+            router.push('/article/list').then();
+        } catch {
+            openSnackbar('error');
+        }
     };
 
     /** 執筆キャンセル */
     const onClickCancelButton = () => {
-        _navigateList();
+        router.push('/article/list').then();
     };
 
     return (

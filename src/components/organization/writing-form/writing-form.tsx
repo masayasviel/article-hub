@@ -5,7 +5,7 @@ import Stack from '@mui/material/Stack';
 
 import MultilineForm from '@atom/multiline-form';
 import RequiredOneLineForm from '@atom/required-one-line-form/required-one-line-form';
-import MarkdownDisplay from "@atom/markdown-display";
+import MarkdownDisplay from '@atom/markdown-display';
 
 import styles from './writing-form.module.css';
 

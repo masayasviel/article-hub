@@ -14,7 +14,7 @@ const Header = () => {
                         article-hub
                     </Typography>
                     {/* ボタン */}
-                    <Link href="http://localhost:3000/article/8" passHref>
+                    <Link href="/article/8" passHref>
                         <Button color="inherit">Logout</Button>
                     </Link>
                 </Toolbar>

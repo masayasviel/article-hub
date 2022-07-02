@@ -1,4 +1,4 @@
-import { Card, CardContent, Typography, Stack, Divider, CardActionArea } from "@mui/material";
+import { Card, CardContent, Typography, Stack, Divider, CardActionArea } from '@mui/material';
 
 interface ArticleColumnProps {
     title: string;
