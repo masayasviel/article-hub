@@ -29,7 +29,7 @@ const markdownDisplay = ({ content }: PropType) => {
         <span dangerouslySetInnerHTML={{
             __html: md.render(content)
         }}></span>
-    )
+    );
 }
 
 export default markdownDisplay;

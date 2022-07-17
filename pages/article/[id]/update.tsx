@@ -5,22 +5,23 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 
 import WritingForm from '@organization/writing-form/writing-form';
-import { createRequest } from '@services/article.service';
-import {openSnackbar} from '@services/global.service';
+import { openSnackbar } from '@services/global.service';
+import { updateRequest } from '@services/article.service';
 
-/** 記事登録ページ */
-const CreatePage: NextPage = () => {
+/** 記事更新ページ */
+const UpdatePage: NextPage = () => {
     // --- state ---
     const [ inputValues, setInputValues ] = useState({ title: '', content: '' });
     const [ isValid, setIsValid ] = useState(false);
     const router = useRouter();
+    const { id } = router.query;
 
     // --- event handler ---
 
-    /** 記事登録 */
-    const onClickRegisterButton = async () => {
+    /** 記事更新 */
+    const onClickUpdateButton = async () => {
         try {
-            await createRequest(inputValues);
+            await updateRequest(inputValues);
             openSnackbar('success');
             router.push('/article/list').then();
         } catch {
@@ -30,7 +31,7 @@ const CreatePage: NextPage = () => {
 
     /** 執筆キャンセル */
     const onClickCancelButton = () => {
-        router.push('/article/list').then();
+        router.push(`/article/${id}`).then();
     };
 
     return (
@@ -39,7 +40,7 @@ const CreatePage: NextPage = () => {
             <Stack spacing={2} direction="column" justifyContent="flex-start">
                 <Stack spacing={2} direction="row" justifyContent="flex-end" alignItems="center">
                     <Button variant="outlined" onClick={onClickCancelButton}>キャンセル</Button>
-                    <Button variant="contained" disabled={!isValid} onClick={onClickRegisterButton}>投稿</Button>
+                    <Button variant="contained" disabled={!isValid} onClick={onClickUpdateButton}>更新</Button>
                 </Stack>
                 <WritingForm setState={setInputValues} setValid={setIsValid}></WritingForm>
             </Stack>
@@ -47,4 +48,4 @@ const CreatePage: NextPage = () => {
     );
 }
 
-export default CreatePage;
+export default UpdatePage;

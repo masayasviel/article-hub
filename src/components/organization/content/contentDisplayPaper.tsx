@@ -19,12 +19,12 @@ const ContentDisplayPaper = ({ article }: PropType) => {
         flexWrap: 'wrap',
         '& > :not(style)': {
           m: 1,
-          width: 800,
-          height: 600,
+          minWidth: 800,
+          minHeight: 600,
         },
       }}
     >
-      <Paper>
+      <Paper elevation={3}>
         <MarkdownDisplay content={article} />
       </Paper>
     </Box>

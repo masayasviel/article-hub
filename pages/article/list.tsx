@@ -1,9 +1,7 @@
 import type { NextPage } from 'next';
-import Header from '@organization/header/header'
 import Link from 'next/link'
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-import { Container } from '@mui/system';
 
 import ArticleColumn from '@organization/article-column/article-column';
 
@@ -14,13 +12,10 @@ const ArticleList: NextPage = () => {
         { author: "taroooou", title: "浮動小数点と固定小数点" }
     ]
     return (
-        <Container maxWidth="lg">
-            {/* ヘッダー */}
-            <Header/>
-
+        <>
             <h1>Article List</h1>
             <Stack direction="row" justifyContent="flex-end">
-                <Link href="./create" passHref>
+                <Link href="/article/create" passHref>
                     <Button>記事作成</Button>
                 </Link>
             </Stack>
@@ -31,7 +26,7 @@ const ArticleList: NextPage = () => {
                     )
                 })}
             </Stack>
-        </Container>
+        </>
     )
 }
 
