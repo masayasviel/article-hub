@@ -38,6 +38,12 @@ make rm-all-vol
 npx prisma migrate dev --name init
 ```
 
+## address
+
+- phpmyadmin
+
+`http://localhost:8080/`
+
 ## Note
 
 脆弱性マシマシなので注意！！！
