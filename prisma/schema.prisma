@@ -7,12 +7,36 @@ generator client {
 
 datasource db {
     provider = "mysql"
-    url = env("DATABASE_URL")
+    url      = env("DATABASE_URL")
 }
 
+// ■ユーザーテーブル
+// ・ユーザID(PK) int
+// ・ユーザCD varchar(20)
+// ・ニックネーム varchar(80)
+// ・パスワード varchar(250)
 model User {
-    id    Int    @id @default(autoincrement())
-    name  String
-    email String @unique
+    id       Int    @id @default(autoincrement())
+    usercode String @unique @db.VarChar(20)
+    name     String @db.VarChar(80)
+    password String @db.VarChar(250)
+    Post     Post[]
 }
 
+// ■記事テーブル
+// ・記事ID(PK) int
+// ・ユーザID int
+// ・記事タイトル varchar(40)
+// ・記事本文 text
+// ・作成日時 date
+// ・更新日時 date
+
+model Post {
+    id         Int      @id @default(autoincrement())
+    userid     Int
+    user       User     @relation(fields: [userid], references: [id], onDelete: Cascade)
+    title      String   @db.VarChar(40)
+    text       String   @db.Text
+    created_at DateTime @default(now())
+    updated_at DateTime @updatedAt
+}
