@@ -35,7 +35,7 @@ make rm-all-vol
 - migrate prisma
 
 ```sh
-npx prisma migrate dev --name init
+make migrate
 ```
 
 ## address

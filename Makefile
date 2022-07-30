@@ -9,3 +9,7 @@ rm-all-img:
 
 rm-all-vol:
 	docker volume ls -qf dangling=true | xargs docker volume rm
+
+migrate:
+	npx prisma migrate dev --name init
+	npx prisma generate

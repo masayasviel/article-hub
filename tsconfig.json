@@ -22,7 +22,8 @@
       "@organization/*": ["./src/components/organization/*"],
       "@services/*": ["./src/services/*"],
       "@interfaces/*": ["./src/interfaces/*"],
-      "@store/*": ["./src/store/*"]
+      "@store/*": ["./src/store/*"],
+      "@controller/*": ["./src/controller/*"]
     },
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
