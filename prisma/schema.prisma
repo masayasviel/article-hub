@@ -30,7 +30,6 @@ model User {
 // ・記事本文 text
 // ・作成日時 date
 // ・更新日時 date
-
 model Post {
     id        Int      @id @default(autoincrement())
     userid    Int
