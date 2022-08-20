@@ -13,7 +13,7 @@ export default async function handler(
         case 'GET':
             try {
                 await getArticle(Number(id));
-                res.status(204).send({});
+                res.status(200).send({res});
             } catch (e) {
                 if (e instanceof NotFoundError) {
                     res.status(404).send({});
