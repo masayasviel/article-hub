@@ -10,3 +10,9 @@ export interface ListArticleResponseType {
     user: string;
     title: string;
 }
+
+/** 記事詳細レスポンスタイプ */
+export interface ArticleDetailResponseType {
+    title: string;
+    content: string;
+}
