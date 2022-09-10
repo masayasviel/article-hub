@@ -20,8 +20,9 @@ const UpdatePage: NextPage = () => {
 
     /** 記事更新 */
     const onClickUpdateButton = async () => {
+        if (id == null || Array.isArray(id)) return;
         try {
-            await updateRequest(inputValues);
+            await updateRequest(Number(id), inputValues);
             openSnackbar('success');
             router.push('/article/list').then();
         } catch {

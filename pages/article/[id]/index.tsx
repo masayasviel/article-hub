@@ -3,13 +3,28 @@ import ContentDisplayPaper from '@organization/content/contentDisplayPaper';
 import { Button, Icon, Stack } from '@mui/material';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { getRequest } from '@src/services/article.service';
+import { openSnackbar } from '@src/services/global.service';
+import { useState, useEffect } from 'react';
 
 const ContentPage: NextPage = () => {
   const router = useRouter();
   const { id } = router.query;
 
-  const testTitle = "Aticle Title";
-  const testData = "test2";
+  const [data, setData] = useState({
+    title: '',
+    content: ''
+  });
+
+  useEffect(() => {
+    if (id == null || Array.isArray(id)) return;
+    getRequest(Number(id)).then((res) => {
+      setData(res.data);
+    }).catch(() => {
+      openSnackbar('error');
+    });
+  }, [router, id]);
+  
 
   return (
     <>
@@ -24,8 +39,8 @@ const ContentPage: NextPage = () => {
         </Link>
       </Stack>
       <Stack direction="column" justifyContent="center" alignItems="center" spacing={2}>
-        <h1>{testTitle}</h1>
-        <ContentDisplayPaper article={testData} />
+        <h1>{data?.title}</h1>
+        <ContentDisplayPaper article={data?.content} />
       </Stack>
     </>
   );
